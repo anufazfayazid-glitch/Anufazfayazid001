@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast & Furious | Neon Storyline</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #0f2027, #000);
+    color:#eaeaea;
+}
+
+/* ===== MENU NEON ===== */
+.menu{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 40px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(15px);
+    border-radius: 50px;
+    display: flex;
+    gap: 40px;
+    z-index: 999;
+    border: 1px solid rgba(0,234,255,0.4);
+    box-shadow: 0 0 25px rgba(0,234,255,0.4);
+}
+
+.menu a{
+    color:#00eaff;
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#ffae00;
+    text-shadow:0 0 12px #ffae00;
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    background:
+        linear-gradient(to bottom, rgba(0,0,0,.8), #000),
+        url("assets/17160-the-fast-and-the-furious.jpg") center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:55px;
+    letter-spacing:6px;
+    color:#00eaff;
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 30px #00eaff;
+}
+
+.hero span{
+    display:block;
+    margin-top:18px;
+    color:#ffae00;
+    font-size:18px;
+    letter-spacing:3px;
+    text-shadow:0 0 10px #ffae00;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    width:900px;
+    margin:90px auto;
+}
+
+/* ===== TIMELINE ===== */
+.timeline{
+    position:relative;
+    margin-top:60px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:4px;
+    height:100%;
+    background: linear-gradient(#00eaff, #ffae00);
+    box-shadow: 0 0 15px #00eaff;
+}
+
+/* EVENT BOX */
+.event{
+    width:45%;
+    padding:25px;
+    background: rgba(15,15,15,0.85);
+    border-radius:15px;
+    margin-bottom:70px;
+    position:relative;
+    border:1px solid rgba(0,234,255,0.4);
+    box-shadow:
+        0 0 20px rgba(0,234,255,0.3),
+        inset 0 0 15px rgba(255,174,0,0.1);
+}
+
+/* NEON DOT */
+.event::before{
+    content:"";
+    position:absolute;
+    top:25px;
+    width:14px;
+    height:14px;
+    background:#ffae00;
+    border-radius:50%;
+    box-shadow:0 0 15px #ffae00;
+}
+
+.left{
+    margin-right:auto;
+}
+
+.left::before{
+    right:-32px;
+}
+
+.right{
+    margin-left:auto;
+}
+
+.right::before{
+    left:-32px;
+}
+
+.event h3{
+    color:#00eaff;
+    margin-bottom:12px;
+    text-shadow:0 0 10px #00eaff;
+}
+
+.event p{
+    line-height:1.8em;
+    font-size:15px;
+    color:#ddd;
+}
+
+/* ===== QUOTE ===== */
+.quote{
+    margin:90px auto;
+    padding:30px;
+    text-align:center;
+    font-size:20px;
+    color:#ffae00;
+    border-radius:12px;
+    background: rgba(0,0,0,0.6);
+    border:1px solid rgba(255,174,0,0.4);
+    box-shadow:0 0 25px rgba(255,174,0,0.4);
+    width:90%;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:30px;
+    background:#000;
+    color:#888;
+    border-top:1px solid rgba(0,234,255,0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:950px){
+    .container{
+        width:90%;
+    }
+
+    .timeline::before{
+        left:10px;
+    }
+
+    .event{
+        width:100%;
+        margin-left:30px;
+    }
+
+    .event::before{
+        left:-32px;
+    }
+}
+/* ===== OPENING CINEMATIC ===== */
+#opening{
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #0f2027, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 1.2s ease forwards;
+    animation-delay: 3.8s;
+}
+
+.opening-content{
+    text-align: center;
+    animation: zoomIn 2s ease forwards;
+}
+
+.opening-content h1{
+    font-size: 55px;
+    letter-spacing: 6px;
+    color: #00eaff;
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 30px #00eaff,
+        0 0 60px #00eaff;
+    margin-bottom: 15px;
+}
+
+.opening-content p{
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: #ffae00;
+    text-shadow: 0 0 15px #ffae00;
+}
+
+/* ANIMATIONS */
+@keyframes zoomIn{
+    from{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+</style>
+</head>
+
+<body>
+    <!-- OPENING ANIMATION -->
+<div id="opening">
+    <div class="opening-content">
+        <h1>FAST & FURIOUS</h1>
+        <p>Speed • Loyalty • Family</p>
+    </div>
+</div>
+
+
+<!-- MENU -->
+<div class="menu">
+        <a href="uas001.html">JAVA</a>
+        <a href="uas003.html">KONTAK</a>
+        <a href="uas002.html">GALLERY</a>
+        <a href="uas004.html">HOME</a>
+    </div>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>FAST & FURIOUS</h1>
+        <span>SPEED • LOYALTY • FAMILY</span>
+    </div>
+</section>
+
+
+<!-- STORYLINE -->
+<div class="container">
+
+    <div class="timeline">
+
+        <div class="event left">
+            <h3>Awal Jalanan</h3>
+            <p>
+                Dunia Fast & Furious lahir dari balapan jalanan ilegal,
+                di mana kecepatan adalah segalanya dan reputasi dipertaruhkan.
+            </p>
+        </div>
+
+        <div class="event right">
+            <h3>Dua Dunia Bertabrakan</h3>
+            <p>
+                Brian O’Conner datang sebagai polisi,
+                namun terjebak dalam dunia yang mengajarkan arti kesetiaan.
+            </p>
+        </div>
+
+        <div class="event left">
+            <h3>Keluarga di Atas Segalanya</h3>
+            <p>
+                Dominic Toretto hidup dengan satu prinsip:
+                keluarga adalah kekuatan terbesar.
+            </p>
+        </div>
+
+        <div class="event right">
+            <h3>Konflik Global</h3>
+            <p>
+                Dari jalanan ke misi dunia,
+                musuh datang dari masa lalu dan teknologi modern.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="quote">
+        “You don’t turn your back on family, even when they do.”
+    </div>
+
+    <div class="quote">
+        "Terima kasih Pak, ini adalah karya saya.""
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    &copy; 2025 | Anuf Azfa Yazid
+</footer>
+
+<script>
+    setTimeout(() => {
+        document.getElementById("opening").style.display = "none";
+    }, 5000);
+</script>
+
+</body>
+</html>
