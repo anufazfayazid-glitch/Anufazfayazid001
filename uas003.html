@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast & Furious - Contact Us</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* OPENING CINEMATIC */
+.intro{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    overflow:hidden;
+}
+
+.intro::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:100%;
+    background:repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 40px,
+        rgba(0,234,255,.2) 55px
+    );
+    animation:speed 1s linear infinite;
+}
+
+@keyframes speed{
+    from{transform:translateX(0)}
+    to{transform:translateX(-350px)}
+}
+
+.intro h1{
+    font-size:60px;
+    color:#00eaff;
+    letter-spacing:6px;
+    text-shadow:0 0 40px #00eaff;
+    animation:introZoom 3s forwards;
+}
+
+@keyframes introZoom{
+    0%{transform:scale(1)}
+    70%{transform:scale(1.2)}
+    100%{opacity:0;transform:scale(3)}
+}
+
+/* BODY */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.7)),
+                url(assets/fast-and-furious-8-car-gr5jnmxkd55pnrqt.jpg)
+                center/cover fixed;
+    color:white;
+}
+
+/* CONTAINER */
+.container{
+    width:900px;
+    max-width:95%;
+    margin:50px auto;
+    background:#4c5c5959;
+    box-shadow:0 0 35px rgba(0,234,255,.4);
+    border-radius:15px;
+    overflow:hidden;
+    animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* BANNER */
+.banner img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    filter:brightness(.85);
+}
+
+/* MENU */
+.menu{
+    background:#000000d2;
+    padding:12px;
+    text-align:right;
+}
+
+.menu a{
+    color:gold;
+    text-decoration:none;
+    margin-left:15px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#00eaff;
+    text-shadow:0 0 10px #00eaff;
+}
+
+/* CONTENT */
+.content{
+    padding:30px;
+}
+
+.content h2{
+    text-align:center;
+    color:#00eaff;
+    margin-bottom:30px;
+    letter-spacing:3px;
+    text-shadow:0 0 15px #00eaff;
+}
+
+/* FORM */
+form{
+    width:80%;
+    margin:auto;
+}
+
+.form-group{
+    margin-bottom:15px;
+    animation:slideIn .8s ease forwards;
+}
+
+@keyframes slideIn{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+    color:gold;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    box-shadow:0 0 15px #00eaff;
+}
+
+textarea{
+    resize:none;
+}
+
+.radio-group,
+.checkbox-group{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.radio-group label,
+.checkbox-group label{
+    font-weight:normal;
+    color:white;
+}
+
+/* BUTTONS */
+.buttons{
+    text-align:center;
+    margin-top:25px;
+}
+
+.buttons input{
+    padding:12px 30px;
+    margin:5px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.4s;
+}
+
+.submit{
+    background:gold;
+    color:black;
+}
+
+.submit:hover{
+    background:#00eaff;
+    box-shadow:0 0 20px #00eaff;
+    transform:translateX(6px);
+}
+
+.reset{
+    background:crimson;
+    color:white;
+}
+
+.reset:hover{
+    background:darkred;
+    box-shadow:0 0 20px crimson;
+    transform:translateX(-6px);
+}
+
+/* FOOTER */
+.footer{
+    background:#000;
+    text-align:center;
+    padding:15px;
+    color:gold;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    form{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<div class="intro">
+    <h1>FAST & FURIOUS</h1>
+</div>
+
+<div class="container">
+
+    <!-- Banner -->
+    <div class="banner">
+        <img src="assets/d16463.webp">
+    </div>
+
+    <!-- Menu -->
+    <div class="menu">
+        <a href="uas001.html">JAVA</a>
+        <a href="uas003.html">KONTAK</a>
+        <a href="uas002.html">GALLERY</a>
+        <a href="uas004.html">HOME</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <h2>CONTACT US</h2>
+
+        <form method="post">
+
+            <div class="form-group">
+                <label>NIM</label>
+                <input type="number" name="nim" placeholder="Masukkan NIM anda" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nama</label>
+                <input type="text" name="nama" placeholder="Masukkan Nama anda" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Masukkan Password anda" required>
+            </div>
+
+            <div class="form-group">
+                <label>Alamat</label>
+                <textarea name="alamat" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Kota</label>
+                <select name="kota">
+                    <option>-- Pilih Kota --</option>
+                    <option>Sudirman</option>
+                    <option>PIK</option>
+                    <option>Bogor</option>
+                    <option>Jakarta</option>
+                    <option>Blok M</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="jk"> Laki-laki</label>
+                    <label><input type="radio" name="jk"> Perempuan</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tanggal Lahir</label>
+                <input type="date" name="tgl">
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Pekerjaan</label>
+                <select name="pekerjaan">
+                    <option>Pengusaha</option>
+                    <option>Pilot</option>
+                    <option>Polisi</option>
+                    <option>Tentara</option>
+                    <option>Programmer</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Hobby</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Main Bola</label>
+                    <label><input type="checkbox"> Nonton Film</label>
+                    <label><input type="checkbox"> Nyanyi</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Dokumen</label>
+                <input type="file">
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="SIMPAN DATA" class="submit">
+                <input type="reset" value="KOSONGKAN" class="reset">
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 | Anuf Azfa Yazid - 251011700059 - 01SIFP001
+    </div>
+
+</div>
+
+<script>
+setTimeout(()=>{
+    document.querySelector(".intro").style.display="none";
+},3000);
+</script>
+
+</body>
+</html>
