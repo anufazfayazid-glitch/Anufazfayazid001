@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast & Furious | Anuf Azfa Yazid</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background:url(assets/mobil-mahal-fast-furious-9-090928a21-2c37-4f15-be15-99c9c4713771.webp)
+            no-repeat center center fixed;
+            background-size:cover;
+            color:#fff;
+        }
+
+        .menu{
+            background:rgba(0,0,0,0.85);
+            padding:15px;
+            text-align:center;
+            position:sticky;
+            top:0;
+            z-index:10;
+        }
+
+        .menu a{
+            color:gold;
+            text-decoration:none;
+            margin:0 20px;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        .menu a:hover{
+            color:#00eaff;
+            text-shadow:0 0 10px #00eaff;
+        }
+
+        #header{
+            width:800px;
+            height:300px;
+            margin:30px auto;
+            background:url(assets/d16463.webp) center/cover;
+            border-radius:40px 0;
+            box-shadow:0 0 25px rgba(0,0,0,.8);
+        }
+
+        #content{
+            width:800px;
+            margin:auto;
+            padding:25px;
+            background:rgba(0,0,0,.6);
+            border-radius:15px;
+            box-shadow:0 0 20px rgba(0,0,0,.8);
+        }
+
+        #result{
+            background:rgba(255,255,255,.12);
+            border-radius:20px;
+            padding:25px;
+            text-align:center;
+            box-shadow:0 0 20px #00eaff;
+            animation:fadeIn 2s ease;
+        }
+
+        #result h1{
+            color:gold;
+            text-shadow:0 0 10px gold;
+        }
+
+        #result h2{
+            color:#00eaff;
+        }
+
+        #footer{
+            width:800px;
+            margin:30px auto;
+            padding:20px;
+            background:rgba(0,0,0,.85);
+            text-align:center;
+            border-radius:10px;
+            color:gold;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(30px);}
+            to{opacity:1; transform:translateY(0);}
+        }
+
+        @media(max-width:850px){
+            #header,#content,#footer{width:90%;}
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="menu">
+    <a href="uas001.html">JAVA</a>
+    <a href="uas003.html">KONTAK</a>
+    <a href="uas002.html">GALLERY</a>
+    <a href="uas004.html">HOME</a>
+</div>
+
+<div id="header"></div>
+
+<div id="content">
+    <div id="result"></div>
+</div>
+
+<div id="footer">
+    &copy; 2025 | Anuf Azfa Yazid - 251011700059
+</div>
+
+<script>
+    /* INPUT USER */
+    const nama = prompt("Masukkan nama anda:");
+    const umur = prompt("Masukkan umur anda:");
+    const usia = parseInt(umur);
+
+    let kategori="", izin="";
+
+    if(usia>=17){
+        kategori="Dewasa / Remaja";
+        izin="Anda diperbolehkan memasuki website ini";
+    }else{
+        kategori="Di bawah umur";
+        izin="Anda belum diperbolehkan memasuki website ini";
+    }
+
+    /* WAKTU */
+    const waktu=new Date();
+    const jam=waktu.getHours();
+    const menit=waktu.getMinutes();
+    const hari=waktu.getDay();
+    const tgl=waktu.getDate();
+    const bulan=waktu.getMonth();
+    const tahun=waktu.getFullYear();
+
+    const hariNama=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+    const bulanNama=["Januari","Februari","Maret","April","Mei","Juni","Juli",
+                     "Agustus","September","Oktober","November","Desember"];
+
+    let salam="";
+    if(jam<=9) salam="Selamat pagi 🌅";
+    else if(jam<=14) salam="Selamat siang ☀️";
+    else if(jam<=17) salam="Selamat sore 🌇";
+    else salam="Selamat malam 🌙";
+
+    document.getElementById("result").innerHTML=`
+        <h1>"SELAMAT DATANG"</h1>
+        <h2>Di website "Anuf azfa yazid"</h2>
+        <p><b>${salam}, ${nama}</b></p>
+        <hr>
+        <p>Umur: <b>${usia}</b> tahun</p>
+        <p>Kategori: <b>${kategori}</b></p>
+        <p>${izin}</p>
+        <hr>
+        <p>🕒 ${jam}:${menit}</p>
+        <p>📅 ${hariNama[hari]}, ${tgl} ${bulanNama[bulan]} ${tahun}</p>
+    `;
+
+    alert(izin);
+</script>
+
+</body>
+</html>
