@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast & Furious</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* OPENING CINEMATIC */
+@keyframes opening {
+    from {
+        opacity:0;
+        transform:scale(1.3);
+        filter:blur(20px);
+    }
+    to {
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+                url(assets/fastandforius.jpeg) center/cover fixed;
+    color:#fff;
+    animation: opening 1.8s ease-out;
+}
+
+/* MENU */
+.menu{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0,0,0,.85);
+    padding: 15px 0;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.menu a{
+    color: gold;
+    text-decoration: none;
+    margin: 0 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+/* GLITCH MENU */
+@keyframes glitch {
+    0% { text-shadow: 2px 0 #00eaff, -2px 0 #ff004c; }
+    50% { text-shadow: -2px 0 #00eaff, 2px 0 #ff004c; }
+    100% { text-shadow: 2px 0 #00eaff, -2px 0 #ff004c; }
+}
+
+.menu a:hover{
+    color:#00eaff;
+    animation: glitch .25s infinite;
+}
+
+/* HEADER ANIMATION */
+@keyframes headerZoom {
+    from {
+        opacity:0;
+        transform:scale(1.2);
+    }
+    to {
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+#header{
+    width: 850px;
+    height: 320px;
+    background: url(assets/the-fast-and-the-furious-banner.webp) center/cover;
+    margin: 50px auto;
+    border-radius: 60px 10px 60px 10px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.9);
+    position: relative;
+    overflow: hidden;
+    animation: headerZoom 1.6s ease-out;
+}
+
+#header::after{
+    content:"FAST & FURIOUS";
+    position:absolute;
+    bottom:20px;
+    left:30px;
+    font-size:32px;
+    font-weight:bold;
+    letter-spacing:3px;
+    color:#00eaff;
+    text-shadow:0 0 25px #00eaff;
+}
+
+/* CONTENT SLIDE */
+@keyframes slideUp {
+    from {
+        opacity:0;
+        transform:translateY(80px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#content{
+    width: 850px;
+    margin:auto;
+    background: rgba(10,10,10,.75);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(0,234,255,.3);
+    animation: slideUp 1.6s ease-out;
+}
+#content h3{
+    text-align: left;
+    color:#00eaff;
+    margin-bottom:20px;
+    text-shadow:0 0 15px #00eaff;
+}
+
+
+#content h1{
+    text-align:center;
+    color:#00eaff;
+    margin-bottom:20px;
+    text-shadow:0 0 15px #00eaff;
+}
+
+#content p{
+    font-size:16px;
+    line-height:1.9em;
+    margin-bottom:15px;
+    text-align:justify;
+}
+
+/* GALLERY */
+.gallery-title{
+    margin-top:50px;
+}
+
+.gallery{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 30px rgba(0,0,0,.7);
+    transition:.4s;
+}
+
+.gallery-item:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 0 30px rgba(0,234,255,.9);
+}
+
+.gallery-item img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.25);
+}
+
+.caption{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:12px;
+    background:linear-gradient(transparent, rgba(0,0,0,.85));
+    color:gold;
+    text-align:center;
+    font-weight:bold;
+    opacity:0;
+    transition:.4s;
+}
+
+.gallery-item:hover .caption{
+    opacity:1;
+}
+
+/* FOOTER */
+#footer{
+    width:850px;
+    margin:50px auto 30px;
+    background:rgba(0,0,0,.85);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,.8);
+    animation: slideUp 2s ease-out;
+}
+
+#footer p{
+    color:#00eaff;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    #header,#content,#footer{
+        width:92%;
+    }
+
+    #header::after{
+        font-size:24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+        <a href="uas001.html">JAVA</a>
+        <a href="uas003.html">KONTAK</a>
+        <a href="uas002.html">GALLERY</a>
+        <a href="uas004.html">HOME</a>
+    </div>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- CONTENT -->
+<div id="content">
+    <h1>Fast & Furious</h1>
+
+    <h3>
+        FAST & FURIOUS: KETIKA KECEPATAN MENJADI TAKDIR
+    </h3>
+
+    <p>
+        Malam di Los Angeles selalu punya denyutnya sendiri. Lampu-lampu kota berkilau seperti bintang jatuh di aspal, dan suara mesin mobil meraung seperti hewan liar yang dilepaskan dari kandang. Di sinilah semuanya dimulai—di jalanan, di bawah lampu neon, di antara aroma bensin dan karet ban yang terbakar.
+    </p>
+
+    <h3>
+        Awal dari Jalanan
+    </h3>
+
+    <p>
+Dunia Fast & Furious lahir dari balapan jalanan ilegal. Bukan sekadar adu cepat, tetapi pertarungan harga diri. Setiap balapan adalah pertaruhan reputasi, keberanian, dan kepercayaan. Siapa yang kalah, kehilangan segalanya. Siapa yang menang, mendapatkan nama.
+    </p>
+
+    <p>
+        Di tengah dunia ini berdiri Dominic Toretto—seorang pria bertubuh kekar dengan tatapan dingin dan prinsip hidup yang keras. Dom bukan sekadar pembalap; dia adalah simbol. Mobil Dodge Charger hitamnya menjadi legenda, dan kata-katanya selalu sederhana namun bermakna:
+    </p>
+    
+    <h3>
+        Dua dunia bertabrakan
+    </h3>
+
+    <p>
+    Ketika Brian O’Conner masuk ke dunia balap jalanan, tak ada yang tahu siapa dia sebenarnya. Di balik senyum ramah dan sikap santainya, Brian adalah seorang polisi yang menyamar. Misinya sederhana: menyusup, mendapatkan kepercayaan Dom, dan membongkar jaringan kriminal.
+    </p>
+
+    <p>
+        Namun, dunia tidak selalu berjalan sesuai rencana.
+Brian mulai jatuh cinta pada kehidupan jalanan—kebebasan, adrenalin, dan solidaritas tanpa syarat. Lebih dari itu, dia menemukan sesuatu yang tidak pernah ia rasakan sebelumnya: keluarga. Ikatannya dengan Dom dan saudara perempuannya, Mia Toretto, perlahan mengaburkan batas antara tugas dan hati nurani.
+Ketika kebenaran akhirnya terungkap, Brian dihadapkan pada pilihan paling sulit dalam hidupnya: hukum atau keluarga. Dan dia memilih keluarga.
+    </p>
+
+    <h1 class="gallery-title">Gallery Mobil Ikonik</h1>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="assets/Poster-Dodge-Charger-RT-1970-Fast-and-Furious-7.-Fastandfurious.wikia_.webp">
+            <div class="caption">Dodge Charger – Dominic Toretto</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/Nissan_Skyline_-_2F2F.webp">
+            <div class="caption">Nissan Skyline GT-R – Brian O'Conner</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/the-fast-and-the-furious-toyota-supra-auction-three-quarters.jpg">
+            <div class="caption">Toyota Supra MK4</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/mitsubishi-eclipse-all-asta-l-esemplare-di-fast-furious.jpg">
+            <div class="caption">Mitsubishi Eclipse</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/wmotors_lykanhypersport_gallery_img_04.jpg">
+            <div class="caption">Lykan Hypersport</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/images.jpg">
+            <div class="caption">Chevrolet Camaro</div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+    <p>&copy; 2025 | Anuf Azfa Yazid – 251011700059</p>
+</div>
+
+</body>
+</html>
